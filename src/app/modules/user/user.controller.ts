@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { createUserToDB, getUserByIdFromDB, getUsersFromDB } from "./user.service";
+import { createUserToDB, getAllAdminUsersFromDB, 
+        getUserByIdFromDB, getUsersFromDB } from "./user.service";
 
 export const getUsers = async (req: Request, res: Response, 
 next: NextFunction) => {
@@ -31,6 +32,17 @@ next: NextFunction) => {
             data:user
         })
 }
+
+
+export const getAminUser = async (req: Request, res: Response, 
+    next: NextFunction) => {
+            
+            const user = await getAllAdminUsersFromDB()
+            res.status(200).json({
+                status: "success",
+                data:user
+            })
+    }
 
 //pattern
 // Router -> controller -> service
