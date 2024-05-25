@@ -22,7 +22,7 @@ export interface IUser{
 export interface UserModel extends Model<IUser, {}, IUserMethods> {
     getAdminUsers(): Promise<HydratedDocument<IUser, 
     IUserMethods>>;
-  }
+}
 
 // to create instance methods
 export interface IUserMethods {
